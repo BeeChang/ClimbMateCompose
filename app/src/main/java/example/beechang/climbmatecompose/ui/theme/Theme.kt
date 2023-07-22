@@ -109,7 +109,8 @@ fun ClimbMateComposeTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = climbTypography,
+        shapes = shapes ,
         content = content
     )
 }
