@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ClimbMateCompose</string>
+
+    <string name="tab_home">Home</string>
+     <string name="tab_drawing">Drawing</string>
+    <string name="tab_my">My</string>
 </resources>

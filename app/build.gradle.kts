@@ -66,11 +66,14 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.material.iconsExtended)
+    implementation(libs.androidx.compose.materialWindow)
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.navigation.compose)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
