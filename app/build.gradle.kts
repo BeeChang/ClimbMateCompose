@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material.iconsExtended)
+    implementation(libs.androidx.compose.materialWindow)
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
 
