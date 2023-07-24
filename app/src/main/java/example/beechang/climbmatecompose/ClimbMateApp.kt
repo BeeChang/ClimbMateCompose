@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import example.beechang.climbmatecompose.ui.component.ClimbBottomNavigationBar
 import example.beechang.climbmatecompose.ui.component.ClimbNavigationActions
 import example.beechang.climbmatecompose.ui.component.ClimbTopLevelRoute
+import example.beechang.climbmatecompose.ui.home.HomeScreen
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
 
 @Composable
@@ -72,7 +73,7 @@ private fun ClimbNavGraph(
         startDestination = ClimbTopLevelRoute.HOME,
     ) {
         composable(ClimbTopLevelRoute.HOME) {
-
+            HomeScreen()
         }
 
         composable(ClimbTopLevelRoute.DRAWING) {
