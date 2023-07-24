@@ -33,7 +33,7 @@ fun ClimbDivider(
 private fun DividerPreview() {
     ClimbMateComposeTheme {
         Box(Modifier.size(height = 10.dp, width = 100.dp)) {
-            example.beechang.climbmatecompose.ui.home.ClimbDivider(Modifier.align(Alignment.Center))
+            ClimbDivider(Modifier.align(Alignment.Center))
         }
     }
 }
