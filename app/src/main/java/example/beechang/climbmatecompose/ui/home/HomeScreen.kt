@@ -1,41 +1,68 @@
 package example.beechang.climbmatecompose.ui.home
 
 import android.content.res.Configuration
-import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import example.beechang.climbmatecompose.R
+import example.beechang.climbmatecompose.ui.component.ImagesPager
+import example.beechang.climbmatecompose.ui.component.PagerDotsIndicator
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
-import kotlin.math.ln
+import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun HomeScreen(
-    modifier : Modifier = Modifier ,
-    isDarkTheme : Boolean = isSystemInDarkTheme() ,
+    modifier: Modifier = Modifier,
+    isDarkTheme: Boolean = isSystemInDarkTheme(),
+    coroutineScope: CoroutineScope = rememberCoroutineScope(),
 ) {
-
-    Box (
+    Box(
         modifier = modifier.fillMaxSize()
-    ){
+    ) {
         HomeHeaderBar(isDarkMode = isDarkTheme)
+        Column(
+            modifier = modifier.padding(top = 72.dp).padding(horizontal = 16.dp) //HomeHeaderBar height = 64 , add margin top = 8
+        ) {
+            ImagesPager(
+                modifier = Modifier.clip(MaterialTheme.shapes.small),
+                imageUrlList = listOf(
+                    R.drawable.banner_a,
+                    R.drawable.banner_b,
+                    R.drawable.banner_c,
+                    R.drawable.banner_d
+                ),
+                coroutineScope = coroutineScope,
+                onImageClick = {},
+                hasDotIndicator = true,
+                dotIndicator = { selectedIndex, size ->
+                    PagerDotsIndicator(
+                        selectedIndex = selectedIndex,
+                        totalDots = size,
+                    )
+                }
+            )
+        }
     }
 }
 
 
-@Preview(name = "Light Mode" , uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(name = "Light Mode", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview("dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun HomePreview() {
     ClimbMateComposeTheme {
-        HomeScreen( )
+        HomeScreen(
+
+        )
     }
 }
 
