@@ -1,6 +1,7 @@
 package example.beechang.climbmatecompose.ui.home
 
 import android.content.res.Configuration
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,6 +21,7 @@ import example.beechang.climbmatecompose.ui.component.PagerDotsIndicator
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
 import kotlinx.coroutines.CoroutineScope
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
@@ -30,7 +33,9 @@ fun HomeScreen(
     ) {
         HomeHeaderBar(isDarkMode = isDarkTheme)
         Column(
-            modifier = modifier.padding(top = 72.dp).padding(horizontal = 16.dp) //HomeHeaderBar height = 64 , add margin top = 8
+            modifier = modifier
+                .padding(top = 72.dp)
+                .padding(horizontal = 16.dp) //HomeHeaderBar height = 64 , add margin top = 8
         ) {
             ImagesPager(
                 modifier = Modifier.clip(MaterialTheme.shapes.small),
@@ -40,7 +45,6 @@ fun HomeScreen(
                     R.drawable.banner_c,
                     R.drawable.banner_d
                 ),
-                coroutineScope = coroutineScope,
                 onImageClick = {},
                 hasDotIndicator = true,
                 dotIndicator = { selectedIndex, size ->

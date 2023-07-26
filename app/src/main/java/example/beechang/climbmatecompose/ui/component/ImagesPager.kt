@@ -1,5 +1,6 @@
 package example.beechang.climbmatecompose.ui.component
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +16,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,31 +40,29 @@ import kotlinx.coroutines.launch
          * @param imageUrlList = list type are only 2 kinds of int(drawble) ,  string(network link , file path)
          */
 fun ImagesPager(
-    imageUrlList: List<Any> ,
+    imageUrlList: List<Any>,
     autoSlide: Boolean = true,
     delayTime: Long = 2000,
     aspectRatio: Float = 16f / 9f,
     modifier: Modifier = Modifier,
-    coroutineScope: CoroutineScope = rememberCoroutineScope(),
+    pagerState: PagerState = remember { PagerState() },
     onImageClick: (Any) -> Unit = {},
     hasDotIndicator: Boolean,
     dotIndicator: @Composable (selectedIndex: Int, size: Int) -> Unit = { _, _ -> }
 ) {
-    val pagerState: PagerState = rememberPagerState()
     val configuration = LocalConfiguration.current
     val height = configuration.screenWidthDp.dp / aspectRatio
-    
+
     if (autoSlide) {
         LaunchedEffect(pagerState) {
             while (true) {
                 delay(delayTime)
-                coroutineScope.launch {
-                    val nextPage = (pagerState.currentPage + 1) % imageUrlList.size
-                    pagerState.animateScrollToPage(nextPage)
-                }
+                val nextPage = (pagerState.currentPage + 1) % imageUrlList.size
+                pagerState.animateScrollToPage(nextPage)
             }
         }
     }
+
 
     Box(
         modifier
@@ -86,6 +86,7 @@ fun ImagesPager(
                             .fillMaxSize()
                     )
                 }
+
                 else -> throw IllegalArgumentException("Invalid type for imageUrl")
             }
         }
