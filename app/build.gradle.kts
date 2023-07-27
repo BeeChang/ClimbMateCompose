@@ -82,6 +82,8 @@ dependencies {
     implementation(libs.accompanist.pager)
     implementation(libs.coil.kt.compose)
 
+//    timber
+    implementation(libs.timber)
 
 //    navigation
     implementation(libs.androidx.navigation.compose)

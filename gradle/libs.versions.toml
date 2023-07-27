@@ -29,6 +29,7 @@ androidx-lifecycle-compose = "2.6.1"
 androidx-lifecycle-runtime-compose = "2.6.1"
 androidx-hilt-navigation-compose = "1.0.0"
 androidx-constraintlayout = "1.0.1"
+
 hilt = "2.45"
 hiltExt = "1.0.0"
 hilt-navigation = "1.0.0"
@@ -134,6 +135,7 @@ moshi = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerView" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 
 
