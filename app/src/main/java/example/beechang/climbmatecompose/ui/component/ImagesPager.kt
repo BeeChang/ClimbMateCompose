@@ -27,6 +27,7 @@ import coil.compose.AsyncImage
 import example.beechang.climbmatecompose.R
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
 import kotlinx.coroutines.delay
+import timber.log.Timber
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -47,7 +48,8 @@ fun ImagesPager(
 ) {
 
     if (!imageUrlList.all { it is Int || it is String }) {
-        Log.e("ImagesPager", "The type of imageUrlList should be int or string")
+        Timber.tag("ImagesPager").d("The type of imageUrlList should be int or string")
+        Timber.e("The type of imageUrlList should be int or string")
         return
     }
 
