@@ -37,6 +37,7 @@ fun HomeScreen(
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
 ) {
     val pagerState = rememberPagerState()
+    val scrollState = rememberScrollState()
 
     Box(
         modifier = modifier.fillMaxSize()
@@ -46,6 +47,8 @@ fun HomeScreen(
             modifier = modifier
                 .padding(top = 72.dp)
                 .padding(horizontal = 16.dp) //HomeHeaderBar height = 64 , add margin top = 8
+                .verticalScroll(scrollState)
+
         ) {
             ImagesPager(
                 pagerState = pagerState ,
