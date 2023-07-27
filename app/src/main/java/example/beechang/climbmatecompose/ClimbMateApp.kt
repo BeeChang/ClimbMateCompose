@@ -19,7 +19,9 @@ import androidx.navigation.compose.rememberNavController
 import example.beechang.climbmatecompose.ui.component.ClimbBottomNavigationBar
 import example.beechang.climbmatecompose.ui.component.ClimbNavigationActions
 import example.beechang.climbmatecompose.ui.component.ClimbTopLevelRoute
+import example.beechang.climbmatecompose.ui.home.HomeScreen
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
+import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun ClimbMateApp(
@@ -55,6 +57,7 @@ fun ClimbMateApp(
             ClimbNavGraph(
                 navController = navController,
                 modifier = Modifier.padding(innerPaddingModifier),
+                coroutineScope =  coroutineScope
             )
         }
 
@@ -65,6 +68,7 @@ fun ClimbMateApp(
 private fun ClimbNavGraph(
     navController: NavHostController,
     modifier: Modifier = Modifier,
+    coroutineScope: CoroutineScope,
 ) {
     NavHost(
         modifier = modifier,
@@ -72,7 +76,9 @@ private fun ClimbNavGraph(
         startDestination = ClimbTopLevelRoute.HOME,
     ) {
         composable(ClimbTopLevelRoute.HOME) {
-
+            HomeScreen(
+                coroutineScope = coroutineScope
+            )
         }
 
         composable(ClimbTopLevelRoute.DRAWING) {
