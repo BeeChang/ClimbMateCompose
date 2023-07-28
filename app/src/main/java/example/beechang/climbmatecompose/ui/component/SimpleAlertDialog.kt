@@ -10,6 +10,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.tooling.preview.Preview
+import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
+import timber.log.Timber
 
 @Composable
 fun SimpleAlertDialog(
@@ -58,7 +60,7 @@ fun SimpleAlertDialog(
 @Preview(showBackground = true, name = "Light Mode")
 @Composable
 fun SimpleAlertDialogLightPreview() {
-    MaterialTheme {
+    ClimbMateComposeTheme {
         SimpleAlertDialog(
             titleText = "Light Mode",
             contentText = "This is a simple alert dialog in light mode."
@@ -69,7 +71,7 @@ fun SimpleAlertDialogLightPreview() {
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES, name = "Dark Mode")
 @Composable
 fun SimpleAlertDialogDarkPreview() {
-    MaterialTheme {
+    ClimbMateComposeTheme {
         SimpleAlertDialog(
             titleText = "Dark Mode",
             contentText = "This is a simple alert dialog in dark mode."
