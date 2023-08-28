@@ -27,6 +27,7 @@ fun SimpleAlertDialog(
         AlertDialog(
             onDismissRequest = {
                 showDialog.value = false
+                onDismiss()
             },
             title = {
                 Text(text = titleText)

@@ -16,28 +16,34 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import example.beechang.climbmatecompose.MainViewModel
 import example.beechang.climbmatecompose.R
 import example.beechang.climbmatecompose.ui.component.ImagesPager
 import example.beechang.climbmatecompose.ui.component.PagerDotsIndicator
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
 import kotlinx.coroutines.CoroutineScope
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalPermissionsApi::class)
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
 ) {
+
     val pagerState = rememberPagerState()
     val scrollState = rememberScrollState()
+
+    val viewModel = viewModel<MainViewModel>()
 
     Box(
         modifier = modifier.fillMaxSize()
@@ -51,7 +57,7 @@ fun HomeScreen(
 
         ) {
             ImagesPager(
-                pagerState = pagerState ,
+                pagerState = pagerState,
                 modifier = Modifier.clip(MaterialTheme.shapes.small),
                 imageUrlList = listOf(
                     R.drawable.banner_a,
@@ -73,6 +79,7 @@ fun HomeScreen(
 }
 
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Preview(name = "Light Mode", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview("dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
