@@ -32,7 +32,7 @@ import example.beechang.climbmatecompose.ui.component.PagerDotsIndicator
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
 import kotlinx.coroutines.CoroutineScope
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalPermissionsApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
@@ -57,7 +57,7 @@ fun HomeScreen(
 
         ) {
             ImagesPager(
-                pagerState = pagerState,
+                pagerState = pagerState ,
                 modifier = Modifier.clip(MaterialTheme.shapes.small),
                 imageUrlList = listOf(
                     R.drawable.banner_a,
@@ -79,7 +79,6 @@ fun HomeScreen(
 }
 
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Preview(name = "Light Mode", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview("dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable

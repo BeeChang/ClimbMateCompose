@@ -1,6 +1,5 @@
 package example.beechang.climbmatecompose
 
-import android.Manifest
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Scaffold
@@ -17,8 +16,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberPermissionState
 import example.beechang.climbmatecompose.ui.component.ClimbBottomNavigationBar
 import example.beechang.climbmatecompose.ui.component.ClimbNavigationActions
 import example.beechang.climbmatecompose.ui.component.ClimbTopLevelRoute
