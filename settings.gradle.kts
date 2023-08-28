@@ -1,3 +1,4 @@
+include(":domain")
 
 pluginManagement {
     repositories {
@@ -16,3 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ClimbMateCompose"
 include(":app")
+include(":data")

@@ -77,8 +77,8 @@ private fun ClimbNavGraph(
     ) {
         composable(ClimbTopLevelRoute.HOME) {
             HomeScreen(
-                coroutineScope = coroutineScope
-            )
+                coroutineScope = coroutineScope ,
+             )
         }
 
         composable(ClimbTopLevelRoute.DRAWING) {
