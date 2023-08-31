@@ -20,7 +20,6 @@ class NavigationActions(private val navController: NavHostController) {
             MainBottomTab.DRAWING -> MainBottomTab.DRAWING.route
             MainBottomTab.MY -> MainBottomTab.MY.route
         }
-        Log.e("navigateTo" , route)
         navController.navigate(route) {
             popUpTo(navController.graph.findStartDestination().id) {
                 saveState = true
