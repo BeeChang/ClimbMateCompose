@@ -1,9 +1,11 @@
 package example.beechang.climbmatecompose.ui.home
-
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import kotlinx.coroutines.CoroutineScope
+
+object HomeRoute {
+    const val home = "home"
+}
 
 fun NavGraphBuilder.homeNavGraph(
     onDetailClick: () -> Unit,
@@ -15,9 +17,4 @@ fun NavGraphBuilder.homeNavGraph(
             coroutineScope = coroutineScope,
         )
     }
-}
-
-object HomeRoute {
-    const val home = "home"
-
 }
