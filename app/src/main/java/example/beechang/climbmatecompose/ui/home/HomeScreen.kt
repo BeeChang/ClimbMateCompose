@@ -16,15 +16,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import example.beechang.climbmatecompose.MainViewModel
 import example.beechang.climbmatecompose.R
 import example.beechang.climbmatecompose.ui.component.ImagesPager
@@ -32,9 +29,21 @@ import example.beechang.climbmatecompose.ui.component.PagerDotsIndicator
 import example.beechang.climbmatecompose.ui.theme.ClimbMateComposeTheme
 import kotlinx.coroutines.CoroutineScope
 
+@Composable
+fun homeRouter(
+    onDetailClick: () -> Unit,
+    coroutineScope: CoroutineScope = rememberCoroutineScope(),
+) {
+    HomeScreen(
+        onDetailClick = onDetailClick, //TODO ADD GO DETAIL
+        coroutineScope = coroutineScope,
+    )
+}
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
+    onDetailClick: () -> Unit,
     modifier: Modifier = Modifier,
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
@@ -57,7 +66,7 @@ fun HomeScreen(
 
         ) {
             ImagesPager(
-                pagerState = pagerState ,
+                pagerState = pagerState,
                 modifier = Modifier.clip(MaterialTheme.shapes.small),
                 imageUrlList = listOf(
                     R.drawable.banner_a,
@@ -85,7 +94,7 @@ fun HomeScreen(
 fun HomePreview() {
     ClimbMateComposeTheme {
         HomeScreen(
-
+            onDetailClick = {}
         )
     }
 }
